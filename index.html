@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Currency Exchange</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- <nav class="navbar navbar-dark bg-dark">
+    <img id="brand" class="navbar-brand white-logo" src="https://cdn.faceplusplus.com/mc-official/v2.1/img/logo_en.9a130ef.svg" alt="api-logo">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+  </nav> -->
+
+  <div id="app" class="hero-image">
+    <div class="row hero-text">
+
+      <div class="col dropdown">
+        <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ from }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="from-dropdown">
+          <a v-for="option in options" class="dropdown-item" v-on:click="selectFrom">
+            {{ option.text }}
+          </a>
+        </div>
+      </div>
+
+      <div class="col dropdown">
+        <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ to }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="from-dropdown">
+          <a v-for="option in options" class="dropdown-item" v-on:click="selectTo">
+            {{ option.text }}
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <footer class="footer bg-dark">
+    <div class="container-fluid">
+      <div class="text-muted">
+        The API used is from
+        <a href="https://fixer.io/quickstart">Fixer.io</a>
+        . Website created by Michael Black. See his work on Github
+        <a href="https://github.com/michaelblack117/currency-exchange">
+          <i class="fa fa-github-alt" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
