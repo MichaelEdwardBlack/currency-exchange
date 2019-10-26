@@ -35,7 +35,7 @@
                 </a>
               </div>
             </div>
-            <input class="form-control" type="text" v-model="fromAmount" aria-label="Amount">
+            <input class="form-control" type="text" v-model="fromAmount" pattern="[0-9][0-9]*"aria-label="Amount">
           </div>
         </div>
 
@@ -62,11 +62,13 @@
         </div>
       </div>
 
+      <br/>
       <div class="row">
-        <div class="col text-danger">
+        <div class="col bg-danger text-white">
           {{ errorMessage }}
         </div>
       </div>
+      <br/>
 
       <div class="row">
         <div class="col">

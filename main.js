@@ -186,7 +186,16 @@ var app = new Vue({
     selectFrom: function(event) {
       this.fromType = event.target.innerText;
     },
+    isNumeric: function (n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    },
     convert: function(event) {
+      // validate form data
+      if (this.fromAmount < 0 || this.isNumeric(this.fromAmount) === false) {
+        this.errorMessage = "You must enter a positive number"
+        return
+      }
+      // make the api call
       this.loading = true;
       fetch(`${base_url}?access_key=${access_key}&format=1`)
         .then(response => response.json())
