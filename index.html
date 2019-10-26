@@ -17,28 +17,62 @@
     </ul>
   </nav> -->
 
-  <div id="app" class="hero-image">
-    <div class="row hero-text">
 
-      <div class="col dropdown">
-        <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ from }}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="from-dropdown">
-          <a v-for="option in options" class="dropdown-item" v-on:click="selectFrom">
-            {{ option.text }}
-          </a>
+  <div id="app" class="hero-image">
+    <div class="container">
+      <h1>Currency Exchange Calculator</h1>
+      <hr/><br/>
+      <div class="row">
+        <div class="col-5">
+          <div class="input-group mb-3 input-group-lg flex-nowrap">
+            <div class="input-group-prepend">
+              <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ fromType }}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="from-dropdown">
+                <a v-for="option in options" class="dropdown-item" v-on:click="selectFrom">
+                  {{ option.code }}
+                </a>
+              </div>
+            </div>
+            <input class="form-control" type="text" v-model="fromAmount" aria-label="Amount">
+          </div>
+        </div>
+
+        <div class="col-2">
+          <i class="fa fa-long-arrow-right fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div class="col-5">
+          <div class="input-group mb-3 input-group-lg">
+            <div class="input-group-prepend">
+              <div class="dropdown">
+                <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ toType }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="from-dropdown">
+                  <a v-for="option in options" class="dropdown-item" v-on:click="selectTo">
+                    {{ option.code }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <input class="form-control" type="text" v-model="toAmount" aria-label="Amount" readonly>
+          </div>
         </div>
       </div>
 
-      <div class="col dropdown">
-        <button id="from-dropdown" class="btn btn-warning btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ to }}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="from-dropdown">
-          <a v-for="option in options" class="dropdown-item" v-on:click="selectTo">
-            {{ option.text }}
-          </a>
+      <div class="row">
+        <div class="col text-danger">
+          {{ errorMessage }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-light btn-lg" v-on:click="convert">
+            Calculate <i v-if="loading" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+          </button>
         </div>
       </div>
 
@@ -46,11 +80,11 @@
   </div>
 
 
-  <footer class="footer bg-dark">
+  <footer class="footer bg-warning">
     <div class="container-fluid">
       <div class="text-muted">
         The API used is from
-        <a href="https://fixer.io/quickstart">Fixer.io</a>
+        <a href="https://fixer.io">Fixer.io</a>
         . Website created by Michael Black. See his work on Github
         <a href="https://github.com/michaelblack117/currency-exchange">
           <i class="fa fa-github-alt" aria-hidden="true"></i>

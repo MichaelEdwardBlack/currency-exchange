@@ -1,4 +1,14 @@
+body {
+  text-align: center;
+  align-items: center;
+}
+
+h1 {
+  padding: 100px;
+}
+
 .hero-image {
+  padding-top: 50px;
   background-image: url(./images/cash-coins-concept.jpg);
   background-color: #cccccc;
   height: 40em;
@@ -8,11 +18,11 @@
   position: relative;
 }
 
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+.dropdown-menu {
+  max-height: 300px;
+  overflow: scroll;
+}
+
+footer {
+  padding: 80px;
 }
